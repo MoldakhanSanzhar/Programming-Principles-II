@@ -11,7 +11,7 @@ namespace Task4
     {
         static void Main(string[] args)
         {
-            FileStream fs = new FileStream(@"C:\Users\DzSee\Documents\pp2\w2\Lab2\for_T4_create.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            FileStream fs = new FileStream(@"C:\Users\User\Desktop\PP2\week2\Task4\ConsoleApp1\Input.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             StreamWriter wr = new StreamWriter(fs);
 
             string line = "blajfakjsfklajdasd";
@@ -21,9 +21,9 @@ namespace Task4
             fs.Close();
 
             //FileInfo fi = new FileInfo(@"C:\Users\DzSee\Documents\pp2\w2\Lab2\for_T4_create.txt");
-            File.Copy(@"C:\Users\DzSee\Documents\pp2\w2\Lab2\for_T4_create.txt", @"C:\Users\DzSee\Documents\pp2\w2\Lab2\for t4_copy_there\copy.txt");
+            File.Copy(@"C:\Users\User\Desktop\PP2\week2\Task4\ConsoleApp1\Input.txt", @"C:\Users\User\Desktop\PP2\week2\Task4\ConsoleApp1\Sanzhar\copy.txt");
 
-            File.Delete(@"C:\Users\DzSee\Documents\pp2\w2\Lab2\for_T4_create.txt");
+            File.Delete(@"C:\Users\User\Desktop\PP2\week2\Task4\ConsoleApp1\Input.txt");
 
 
 

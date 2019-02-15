@@ -5,60 +5,83 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task2
+namespace Task_2
 {
     class Program
     {
-        static bool Check(int a)
-        {
-            if (a == 1)
-                return false;
-            for (int i = 2; i <= Math.Sqrt(a); i++)
-            {
-                if (a % i == 0)
-                    return false;
-            }
-            return true;
-        }
-        static string Ans(string s)
-        {
-            string res = "";
-            string[] p = s.Split();
-
-            foreach (var q in p)
-            {
-                int temp = int.Parse(q);
-                if (Check(temp))
-                {
-                    res += temp;
-                    res += " ";
-                }
-
-            }
-            return res.Trim(); // delete probelov
-        }
         static void Main(string[] args)
         {
-            FileStream fs = new FileStream(@"C:\Users\DzSee\Documents\pp2\w2\Lab2\for T2.txt", FileMode.Open, FileAccess.Read);
-            StreamReader sr = new StreamReader(fs);
+            //создаю массив простых чисел
+            int[] PrimeNumbers;
 
-            string line = sr.ReadLine();
+            //считываю данные из файла
+            using (FileStream fs = new FileStream(@"C:\Users\User\Desktop\PP2\week2\Task2\ConsoleApp1\Input.txt", FileMode.Open, FileAccess.Read))
+            {
+                using (StreamReader sr = new StreamReader(fs))
+                {
+                    //фильтр чисел
+                    string text = sr.ReadLine();
+                    int[] numbers = Numbers(text);
+                    PrimeNumbers = IsPrime(numbers);
+                }
+            }
+            //записали результат на другой файл
+            using (FileStream fs2 = new FileStream(@"C:\Users\User\Desktop\PP2\week2\Task2\ConsoleApp1\Output.txt", FileMode.OpenOrCreate, FileAccess.Write))
+            {
+                using (StreamWriter sw = new StreamWriter(fs2))
+                {
+                    sw.WriteLine(PrimeNumbers.Length);
+                    //запись простых чисел через пробел
+                    foreach (var x in PrimeNumbers)
+                    {
+                        sw.Write(x + " ");
+                    }
+                }
+            }
+        }
 
-            fs.Close();
-            sr.Close();
 
-            string res = Ans(line);
+        /// <summary>
+        /// проверка на простые числа
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        private static int[] IsPrime(int[] num)
+        {
+            List<int> res = new List<int>();
 
-            FileStream fs_2 = new FileStream(@"C:\Users\DzSee\Documents\pp2\w2\Lab2\for T2_end.txt", FileMode.OpenOrCreate, FileAccess.Write);
-            StreamWriter sw = new StreamWriter(fs_2);
+            foreach (var x in num)
+            {
+                int y = 0;
+                for (int i = 2; i * i <= x; i++)
+                {
+                    if (x % i == 0)
+                    {
+                        y++;
+                    }
+                }
+                if (y == 0 && x!=1)
+                {
+                    res.Add(x);
+                }
+            }
+            return res.ToArray();
+        }
 
-            sw.WriteLine(res);
-
-            sw.Close();
-            fs_2.Close();
-
-
-
+        /// <summary>
+        /// превращение входных данных в массив чисел
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        private static int[] Numbers(string text)
+        {
+            string[] parts = text.Split();
+            int[] res = new int[parts.Length];
+            for (int i = 0; i < parts.Length; ++i)
+            {
+                res[i] = int.Parse(parts[i]);
+            }
+            return res;
         }
     }
 }

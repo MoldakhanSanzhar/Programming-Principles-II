@@ -66,6 +66,7 @@ namespace T1
                     Console.Write(ar[i] + " ");
                 }
             }
+            Console.ReadKey();
 
         }
     }

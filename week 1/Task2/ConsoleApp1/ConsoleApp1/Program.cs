@@ -44,6 +44,7 @@ namespace Task2
             {
                 a.Print();
             }
+            Console.ReadKey();
 
         }
     }

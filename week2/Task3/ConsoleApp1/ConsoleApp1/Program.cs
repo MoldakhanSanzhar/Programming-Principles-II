@@ -27,9 +27,10 @@ namespace Task3
         }
         static void Main(string[] args)
         {
-            DirectoryInfo di = new DirectoryInfo(@"C:\Users\DzSee\Desktop\64");
+            DirectoryInfo di = new DirectoryInfo(@"C:\Users\User\Desktop\PP2\week2\Task3\ConsoleApp1");
 
             Recur(di, 1);
+            Console.ReadKey();
         }
     }
 }

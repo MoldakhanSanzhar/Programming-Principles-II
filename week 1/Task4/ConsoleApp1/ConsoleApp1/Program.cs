@@ -34,6 +34,7 @@ namespace T4_arrays
                 // "red line"
                 Console.WriteLine();
             }
+            Console.ReadKey();
         }
     }
 }

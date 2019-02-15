@@ -58,6 +58,7 @@ namespace Task3_method
 
             // call void Print_ans for print array
             Print_ans(ans);
+            Console.ReadKey();
         }
     }
 }
