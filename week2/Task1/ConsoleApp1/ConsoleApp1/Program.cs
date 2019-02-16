@@ -17,9 +17,9 @@ namespace Task1
             string rev = new string(c);
             */
 
-            string rev = new string(s.ToCharArray().Reverse().ToArray());
+            string rev = new string(s.ToCharArray().Reverse().ToArray()); // Make the array of characters in reverse and add to the array rev
 
-            if (rev == s)
+            if (rev == s) // polindrom or not
                 return true;
             else return false;
         }
@@ -30,7 +30,7 @@ namespace Task1
             StreamReader sr = new StreamReader(fs);
 
             string s = sr.ReadLine();           
-            sr.Close();
+            sr.Close(); 
             fs.Close();
 
             if (Check(s))

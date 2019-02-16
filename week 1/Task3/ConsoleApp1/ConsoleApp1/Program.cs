@@ -11,7 +11,7 @@ namespace Task3_method
     {   // create static class array of int type    
         public static int[] Doub(int[] a)
         {
-            // size of array doub will be siza of array a * 2
+            // size of array doub will be size of array a * 2
             int[] doub = new int[a.Length * 2];
 
             // just cycle for clone the elements

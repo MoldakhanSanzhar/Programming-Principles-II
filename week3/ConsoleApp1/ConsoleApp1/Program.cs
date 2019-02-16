@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FarManager
 {
-    enum FSIMode
+    enum FSIMode //объявил перечисление
     {
         DirectoryInfo = 1,
         File = 2
@@ -27,8 +27,8 @@ namespace FarManager
         }
         public void Draw()
         {
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.Black; // задал цвет фона консоли
+            Console.Clear(); // Удалил из буфера консоли и ее окна отображаемую информацию
             for (int i = 0; i < Content.Length; ++i)
             {
                 if (i == SelectedIndex)
